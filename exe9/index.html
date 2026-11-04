@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f6f2">
+    <meta name="description" content="A clear, simple look at the current weather in your city.">
+    <title>Skyline Weather — Your day, at a glance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="weather-app">
+        <header class="app-header">
+            <a class="brand" href="#" aria-label="Skyline Weather home">
+                <span class="brand-icon" aria-hidden="true">☀</span>
+                <span>skyline<span class="brand-light">weather</span></span>
+            </a>
+            <div class="live-badge"><span class="status-dot" aria-hidden="true"></span> LIVE CONDITIONS</div>
+        </header>
+
+        <div class="top-grid">
+            <section class="intro" aria-labelledby="pageTitle">
+                <p class="eyebrow">YOUR DAY, AT A GLANCE</p>
+                <h1 id="pageTitle">Weather, <span>made clear.</span></h1>
+                <p class="subtitle">A little clarity for wherever the day takes you.</p>
+            </section>
+
+            <section class="search-section" aria-label="Search for a city">
+                <form id="searchForm" class="search-bar">
+                    <label class="sr-only" for="cityInput">Search for a city</label>
+                    <span class="search-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                            <path d="m16 16 4.2 4.2"></path>
+                        </svg>
+                    </span>
+                    <input id="cityInput" name="city" type="search" placeholder="Search any city..." value="Puducherry" autocomplete="off" required>
+                    <button id="searchButton" type="submit"><span>Search</span><span aria-hidden="true">↗</span></button>
+                </form>
+                <div class="quick-searches" aria-label="Popular cities">
+                    <span>POPULAR</span>
+                    <button type="button" class="city-chip" data-city="Chennai">Chennai</button>
+                    <button type="button" class="city-chip" data-city="London">London</button>
+                    <button type="button" class="city-chip" data-city="Tokyo">Tokyo</button>
+                </div>
+            </section>
+        </div>
+
+        <section id="weatherData" class="weather-panel" aria-live="polite" aria-busy="true">
+            <div class="loading-state">
+                <div class="spinner" aria-hidden="true"></div>
+                <p>Finding your local forecast...</p>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <span>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></span>
+            <span id="updatedAt" role="status">Getting the latest conditions</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

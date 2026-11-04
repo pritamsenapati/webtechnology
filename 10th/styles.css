@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+    color-scheme: light;
+    font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+    color: #252d28;
+    background: #f7f6f1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    --ink: #252d28;
+    --muted: #727970;
+    --green: #355d49;
+    --green-dark: #284a39;
+    --paper: #fffefa;
+    --line: #e8e7df;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 24px 72px;
+    background:
+        radial-gradient(ellipse at 82% 9%, rgba(232, 220, 184, 0.28), transparent 32%),
+        #f7f6f1;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.container {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+}
+
+.site-nav {
+    display: flex;
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(52, 73, 58, 0.1);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.28rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fffefa;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+.nav-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #86a17c;
+}
+
+.page-header {
+    position: relative;
+    display: flex;
+    min-height: 355px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 56px 8.5% 46px;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 1;
+    width: min(58%, 590px);
+}
+
+.eyebrow {
+    margin: 0 0 16px;
+    color: var(--green);
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+.eyebrow span {
+    margin-right: 7px;
+    color: #c28d51;
+    font-size: 0.95rem;
+}
+
+h1,
+.results-heading h2 {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.055em;
+}
+
+h1 {
+    font-size: clamp(3.2rem, 6.4vw, 5.3rem);
+    line-height: 0.99;
+}
+
+h1 em,
+.results-heading h2 em {
+    color: var(--green);
+    font-weight: 500;
+}
+
+.intro {
+    max-width: 430px;
+    margin: 22px 0 0;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.75;
+}
+
+.hero-art {
+    position: relative;
+    width: 310px;
+    height: 270px;
+    flex: 0 0 310px;
+    margin: 0 1.5% 0 0;
+}
+
+.art-sun {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    width: 205px;
+    height: 205px;
+    border-radius: 50%;
+    background: #ede5d0;
+}
+
+.art-book {
+    position: absolute;
+    top: 51px;
+    left: 83px;
+    width: 140px;
+    height: 190px;
+    border-radius: 5px 13px 13px 5px;
+    box-shadow: 7px 10px 20px rgba(49, 53, 38, 0.15);
+}
+
+.book-back {
+    left: 63px;
+    transform: rotate(-12deg);
+    background: #c88d68;
+}
+
+.book-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 8px solid rgba(255, 255, 255, 0.16);
+    background: #496d57;
+    color: #f5eddb;
+    transform: rotate(7deg);
+}
+
+.book-front span {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 0.98rem;
+    letter-spacing: 0.13em;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.book-front i {
+    position: absolute;
+    right: 0;
+    bottom: 17px;
+    left: 0;
+    width: 28px;
+    height: 1px;
+    margin: auto;
+    background: #d3b986;
+}
+
+.art-sparkle {
+    position: absolute;
+    z-index: 1;
+    color: #b9854d;
+}
+
+.sparkle-one {
+    top: 30px;
+    left: 46px;
+    font-size: 1.3rem;
+}
+
+.sparkle-two {
+    top: 83px;
+    right: 0;
+    color: var(--green);
+    font-size: 1.05rem;
+}
+
+.art-caption {
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+    color: #7a796b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 0.83rem;
+    font-style: italic;
+    line-height: 1.35;
+    text-align: right;
+}
+
+.search-panel {
+    padding: 25px 30px 19px;
+    border: 1px solid #eeece4;
+    border-radius: 15px;
+    background: var(--paper);
+    box-shadow: 0 12px 35px rgba(45, 54, 43, 0.045);
+}
+
+.search-form {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    gap: 14px;
+}
+
+.search-icon {
+    display: grid;
+    width: 23px;
+    height: 23px;
+    flex: 0 0 auto;
+    place-items: center;
+    color: #858a7f;
+}
+
+.search-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.7;
+}
+
+.search-form input {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--ink);
+    font-size: 0.96rem;
+}
+
+.search-form input::placeholder {
+    color: #9a9d94;
+}
+
+.search-form input:focus-visible {
+    outline: 2px solid #a8b8a5;
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.search-form button {
+    display: inline-flex;
+    min-width: 154px;
+    min-height: 49px;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    padding: 0 19px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--green);
+    color: white;
+    font-size: 0.86rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.search-form button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: var(--green-dark);
+}
+
+.search-form button:focus-visible,
+.search-suggestion:focus-visible,
+.book-link:focus-visible {
+    outline: 3px solid #bfceb9;
+    outline-offset: 3px;
+}
+
+.search-form button:disabled {
+    cursor: wait;
+    opacity: 0.72;
+}
+
+.button-arrow {
+    font-size: 1.08rem;
+}
+
+.popular-searches {
+    display: flex;
+    min-height: 37px;
+    align-items: center;
+    gap: 9px;
+    padding-left: 37px;
+}
+
+.popular-searches > span {
+    margin-right: 4px;
+    color: #9a9b91;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.search-suggestion {
+    padding: 6px 11px;
+    border: 1px solid #ebeae3;
+    border-radius: 20px;
+    background: transparent;
+    color: #6e746b;
+    font-size: 0.71rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.search-suggestion:hover {
+    border-color: #c8d3c4;
+    background: #f1f5ef;
+    color: var(--green);
+}
+
+.results-section {
+    padding-top: 65px;
+}
+
+.results-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.results-heading .eyebrow {
+    margin-bottom: 8px;
+    font-size: 0.61rem;
+}
+
+.results-heading h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.45rem);
+    line-height: 1.2;
+}
+
+.results-source {
+    margin: 0 0 5px;
+    color: #85887f;
+    font-size: 0.72rem;
+}
+
+.results-source span {
+    margin-right: 5px;
+    color: #bf925d;
+}
+
+.status-message {
+    min-height: 22px;
+    margin: 0 0 15px;
+    color: var(--muted);
+    font-size: 0.81rem;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.book-card {
+    min-width: 0;
+    overflow: hidden;
+    padding: 10px 10px 15px;
+    border: 1px solid #eeece5;
+    border-radius: 11px;
+    background: var(--paper);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 13px 28px rgba(45, 54, 43, 0.09);
+}
+
+.cover-wrap {
+    display: grid;
+    height: 230px;
+    place-items: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background: #f0eee6;
+}
+
+.book-cover {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cover-placeholder {
+    padding: 15px;
+    color: #858777;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 0.93rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.book-card h2 {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0 2px 8px;
+    color: var(--ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.book-author,
+.book-year {
+    overflow-wrap: anywhere;
+    margin: 6px 2px;
+    color: var(--muted);
+    font-size: 0.73rem;
+    line-height: 1.5;
+}
+
+.book-year {
+    color: #8d9087;
+    font-size: 0.69rem;
+}
+
+.book-link {
+    display: inline-block;
+    margin: 8px 2px 0;
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.book-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@media (max-width: 850px) {
+    .page-header {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .hero-art {
+        transform: scale(0.84);
+        transform-origin: center right;
+        margin-right: -15px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0 16px 42px;
+    }
+
+    .site-nav {
+        min-height: 70px;
+    }
+
+    .nav-note {
+        font-size: 0.68rem;
+    }
+
+    .page-header {
+        min-height: auto;
+        padding: 52px 0 34px;
+    }
+
+    .hero-copy {
+        width: 100%;
+    }
+
+    .hero-art {
+        position: absolute;
+        right: -42px;
+        bottom: -78px;
+        opacity: 0.16;
+        transform: scale(0.74);
+    }
+
+    h1 {
+        font-size: clamp(3rem, 12vw, 4.1rem);
+    }
+
+    .intro {
+        max-width: 360px;
+        font-size: 0.9rem;
+    }
+
+    .search-panel {
+        padding: 14px 15px 15px;
+    }
+
+    .search-form {
+        gap: 9px;
+    }
+
+    .search-form button {
+        min-width: 52px;
+        min-height: 46px;
+        gap: 0;
+        padding: 0 14px;
+    }
+
+    .button-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        clip-path: inset(50%);
+    }
+
+    .button-arrow {
+        font-size: 1.25rem;
+    }
+
+    .popular-searches {
+        flex-wrap: wrap;
+        gap: 7px;
+        padding: 9px 0 0;
+    }
+
+    .popular-searches > span {
+        width: 100%;
+        margin-bottom: 1px;
+    }
+
+    .results-section {
+        padding-top: 49px;
+    }
+
+    .results-heading {
+        align-items: start;
+    }
+
+    .results-source {
+        max-width: 100px;
+        font-size: 0.65rem;
+        line-height: 1.5;
+        text-align: right;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .book-card {
+        padding: 8px 8px 12px;
+    }
+
+    .cover-wrap {
+        height: 190px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 370px) {
+    body {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .nav-note {
+        max-width: 125px;
+        text-align: right;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cover-wrap {
+        height: 245px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

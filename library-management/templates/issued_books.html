@@ -1,0 +1,108 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issued Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Issued Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Issue ID</th>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Issue Date</th>
+                <th>Return Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book[0] }}</td>
+                <td>{{ book[1] }}</td>
+                <td>{{ book[2] }}</td>
+                <td>{{ book[3] }}</td>
+                <td>{{ book[4] }}</td>
+                <td>{{ book[5] }}</td>
+                <td>{{ book[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        fetch('/issued')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector('tbody');
+                data.forEach(book => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${book.IssueId}</td>
+                        <td>${book.StudentId}</td>
+                        <td>${book.StudentName}</td>
+                        <td>${book.BookId}</td>
+                        <td>${book.BookName}</td>
+                        <td>${book.IssueDate}</td>
+                        <td>${book.ReturnDate || '-'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issued Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Book Management System</h1>
+    </header>
+    <div class="container">
+        <h2>Issued Books</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Issue ID</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Book ID</th>
+                    <th>Book Name</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.IssueId }}</td>
+                    <td>{{ book.StudentId }}</td>
+                    <td>{{ book.StudentName }}</td>
+                    <td>{{ book.BookId }}</td>
+                    <td>{{ book.BookName }}</td>
+                    <td>{{ book.IssueDate }}</td>
+                    <td>{{ book.ReturnDate or '-' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Book Management System</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Book Management System</h1>
+    </header>
+    <div class="container">
+        <h2>Issue a Book</h2>
+        <form id="issueForm">
+            <label for="studentId">Student ID:</label>
+            <input type="text" id="studentId" name="studentId" required>
+
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="bookId">Book ID:</label>
+            <input type="text" id="bookId" name="bookId" required>
+
+            <button type="submit">Issue Book</button>
+        </form>
+        <div id="issueResult"></div>
+    </div>
+
+    <footer>
+        <p>&copy;  Book Management System</p>
+    </footer>
+
+    <script>
+        document.getElementById('issueForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/issue', {
+                method: 'POST',
+                
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    document.getElementById('issueResult').innerHTML = `<p class="success">${data.message}</p>`;
+                } else {
+                    document.getElementById('issueResult').innerHTML = `<p class="error">${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('issueResult').innerHTML = `<p class="error">Failed to issue book. Please try again later.</p>`;
+            });
+        });
+    </script>
+</body>
+</html>
+
